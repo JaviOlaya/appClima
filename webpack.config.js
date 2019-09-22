@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin =require('mini-css-extract-plugin');
-const devMode = 
+const devMode = process.env.NODE_ENV  !== 'production';
+console.log(devMode);
 module.exports = {
     entry:[
         './src/app/index.js'
@@ -20,7 +21,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use:[
-                    'style-loader',
+                   devMode? 'style-loader':MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
             }
