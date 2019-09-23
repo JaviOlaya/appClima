@@ -1,5 +1,11 @@
 import React from 'react';
-const WeatherInfo = ()=> {
+const WeatherData = props=> {
     
- 
+ return(
+     <div>
+         WeatherData
+     </div>
+ )
 }
+
+export default WeatherData;
