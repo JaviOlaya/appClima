@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import WheatherData from './components/WheatherData';
+import WeatherData from './components/WeatherData';
 import WheatherForm from './components/WeatherForm';
 class App extends Component{
 
@@ -7,8 +7,9 @@ class App extends Component{
         return (
           <div className="container p-4">
                  <div className="row">
-                    <div className="col-md-6">
-                        <WheatherData/>
+                    <div className="col-md-6 mx-auto">
+                        <WheatherForm/>
+                        <WeatherData/>
                     </div>
 
                  </div>
