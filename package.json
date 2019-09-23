@@ -1,11 +1,11 @@
 {
-  "name": "misProyectos",
+  "name": "appClima",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build":"cross-env NODE_ENV=production webpack -p",
-    "start":"webpack-dev-server --open"
+    "build": "cross-env NODE_ENV=production webpack -p",
+    "start": "webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",
