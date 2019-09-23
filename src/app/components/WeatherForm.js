@@ -1,18 +1,18 @@
 import React from 'react';
-const WheatherForm = props=>{
+const WeatherForm = props=>{
 
     return(
-         <div class="card card-body">
-             <form action="">
-                <div class="form-group">
-                    <input type="text" placeholder="Your city Name" 
-                    class="form-control" autofocus/>
+         <div className="card card-body">
+             <form onSubmit={props.getWeather}>
+                <div className="form-group">
+                    <input type="text" name="city" placeholder="Your city Name" 
+                    className="form-control" autoFocus/>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <input type="text" name="country" placeholder="Your Country" 
-                    class="form-control"/>
+                    className="form-control"/>
                 </div>
-                <button class="btn btn-success btn-block">
+                <button className="btn btn-success btn-block">
                     Get Weather
                 </button>
              </form>
@@ -22,4 +22,4 @@ const WheatherForm = props=>{
 
 };
 
-export default WheatherForm;
+export default WeatherForm;
