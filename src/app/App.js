@@ -5,7 +5,9 @@ import {WEATHER_KEY} from './keys';
 class App extends Component{
 
     state ={
+       
         temperature:'',
+        description:'',
         description:'',
         humidity:'',
         wind_speed:'',
@@ -19,22 +21,30 @@ class App extends Component{
         const {city, country} = e.target.elements;
         const cityValue = city.value;
         const countryValue  =country.value;
-        const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}&units=metric`;
-        const response= await fetch(API_URL); 
-        const data = await response.json();
-        console.log(data);
-        this.setState({
-            temperature:data.main.temperature,
-            description:data.weather.description,
-            humidity: data.main.humidity,
-            wind_speed: data.wind.speed,
-            city:data.name,
-            country:data.sys.country,
-            error:null
-        })
-    }
 
-    render(){
+        if(cityValue && countryValue){
+            const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}&units=metric`;
+            const response= await fetch(API_URL); 
+            const data = await response.json();
+            console.log(data);
+    
+            this.setState({
+                temperature:data.main.temp,
+                description:data.weather[0].description,
+                humidity: data.main.humidity,
+                wind_speed: data.wind.speed,
+                city:data.name,
+                country:data.sys.country,
+                error:null
+            });
+        }
+        else {
+            this.setState({error:'Please, Enter correct values'})
+       
+            }
+
+    render()
+    {
         return (
           <div className="container p-4">
                  <div className="row">
@@ -48,5 +58,6 @@ class App extends Component{
           </div>
         )
     }
+ } 
 }
 export default App;
