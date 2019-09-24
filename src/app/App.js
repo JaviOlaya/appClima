@@ -4,7 +4,7 @@ import WeatherForm from './components/WeatherForm';
 import {WEATHER_KEY} from './keys';
 class App extends Component{
 
-    state ={
+    state = {
        
         temperature:'',
         description:'',
@@ -27,7 +27,7 @@ class App extends Component{
             const response= await fetch(API_URL); 
             const data = await response.json();
             console.log(data);
-    
+
             this.setState({
                 temperature:data.main.temp,
                 description:data.weather[0].description,
@@ -39,8 +39,10 @@ class App extends Component{
             });
         }
         else {
-            this.setState({error:'Please, Enter correct values'})
-       
+            this.setState({
+                error:'Please Enter correct values.'
+        })
+                }
             }
 
     render()
@@ -56,8 +58,8 @@ class App extends Component{
                  </div>
 
           </div>
-        )
+        );
     }
  } 
-}
+
 export default App;

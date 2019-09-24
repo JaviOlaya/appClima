@@ -4,11 +4,14 @@ const WeatherData = props=> {
  return(
     <div>
            {props.error &&
-        <div className="alert aler-danger">
+        <div className="alert alert-danger">
         <p>{props.error}</p>
         </div>
     }
-     <div className="card card-body">
+    {
+        props.temperature ?
+        <div>
+ <div className="card card-body">
          <p>
              Location:{props.city}, {props.country}<br/>
     
@@ -25,8 +28,15 @@ const WeatherData = props=> {
 
          
      </div>
-    </div>
-  
+        </div>
+        :
+        <div className="card card-body">
+            <p>No Request Yet</p>
+        </div>
+    }
+    
+
+  </div>
     
  )
 }
