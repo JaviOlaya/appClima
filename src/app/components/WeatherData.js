@@ -1,4 +1,5 @@
 import React from 'react';
+import 
 const WeatherData = props=> {
    
  return(
@@ -13,7 +14,7 @@ const WeatherData = props=> {
         <div>
  <div className="card card-body">
          <p>
-             Location:{props.city}, {props.country}<br/>
+             Location:{props.city}, {props.country},<img src="https://www.countryflags.io/$props.country/flat/64.png"/><br/>
     
          </p>
          <p>
@@ -31,7 +32,7 @@ const WeatherData = props=> {
         </div>
         :
         <div className="card card-body">
-            <p>No Request Yet</p>
+           
         </div>
     }
     

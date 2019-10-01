@@ -5,7 +5,6 @@ import {WEATHER_KEY} from './keys';
 class App extends Component{
 
     state = {
-       
         temperature:'',
         description:'',
         description:'',
