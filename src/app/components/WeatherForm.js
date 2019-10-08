@@ -13,7 +13,7 @@ const WeatherForm = props=>{
                     className="form-control" autofocus/>
                 </div>
                 <button className="btn btn-success btn-block">
-                    Get Weather
+                    <b>Get Weather</b>
                 </button>
              </form>
            

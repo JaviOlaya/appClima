@@ -6,12 +6,18 @@ class App extends Component{
 
     state = {
         temperature:'',
+        temp_max:'',
+        temp_min:'',
         description:'',
         description:'',
         humidity:'',
         wind_speed:'',
         city:'',
         country:'',
+        lon:'',
+        lat:'',
+        icon:'',
+        flag:'',
         error:null
     };
 
@@ -25,15 +31,22 @@ class App extends Component{
             const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}&units=metric`;
             const response= await fetch(API_URL); 
             const data = await response.json();
+            const flag1 = `https://www.countryflags.io/${data.sys.country}/flat/64.png`;
             console.log(data);
 
             this.setState({
                 temperature:data.main.temp,
+                temp_max:data.main.temp_max,
+                temp_min:data.main.temp_min,
                 description:data.weather[0].description,
                 humidity: data.main.humidity,
                 wind_speed: data.wind.speed,
                 city:data.name,
                 country:data.sys.country,
+                lon:data.coord.lon,
+                lat:data.coord.lat,
+                icon:data.weather[0].icon,
+                flag:flag1,
                 error:null
             });
         }

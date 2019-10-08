@@ -1,5 +1,5 @@
 import React from 'react';
-import 
+ 
 const WeatherData = props=> {
    
  return(
@@ -14,17 +14,23 @@ const WeatherData = props=> {
         <div>
  <div className="card card-body">
          <p>
-             Location:{props.city}, {props.country},<img src="https://www.countryflags.io/$props.country/flat/64.png"/><br/>
-    
+             <b>Location:</b> {props.city}, {props.country}, <img src={props.flag}/>
+                 <p>
+                   <b>Coord(lon,lat): </b> {props.lon}º, {props.lat}º
+                 </p>
+             <br/>
+
          </p>
          <p>
-             Data of weather:<br/>
+             <b><i>Data of weather:</i></b><br/>
         </p>
              <p>
-                 Description:{props.description}<br/>
-                 Temperature:{props.temperature}<br/>
-                 Humedad:{props.humidity} <br/>
-                 wind speed:{props.wind_speed} 
+                 Description:{props.description} <br/>
+                 Temperature:{props.temperature} º<br/>
+                 Temperature max:{props.temp_max} º<br/>
+                 Temperature min:{props.temp_min} º<br/>
+                 Humedity:{props.humidity} %<br/>
+                 wind speed:{props.wind_speed} m/s
              </p>
 
          
