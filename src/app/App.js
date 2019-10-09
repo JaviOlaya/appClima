@@ -18,6 +18,8 @@ class App extends Component{
         lat:'',
         icon:'',
         flag:'',
+        map1:'',
+        wind_d:'',
         error:null
     };
 
@@ -31,7 +33,9 @@ class App extends Component{
             const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}&units=metric`;
             const response= await fetch(API_URL); 
             const data = await response.json();
-            const flag1 = `https://www.countryflags.io/${data.sys.country}/flat/64.png`;
+            const flag1 = `https://www.countryflags.io/${data.sys.country}/flat/32.png`;
+            const iconw = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+            const mapp =`https://maps.owm.io/map/{precipitation_new}/${10}/${data.coord.lon}/${data.coord.lat}.png?appid=${WEATHER_KEY}`;
             console.log(data);
 
             this.setState({
@@ -45,8 +49,10 @@ class App extends Component{
                 country:data.sys.country,
                 lon:data.coord.lon,
                 lat:data.coord.lat,
-                icon:data.weather[0].icon,
+                icon:iconw,
                 flag:flag1,
+                map1:mapp,
+                wind_d:data.wind.deg,
                 error:null
             });
         }
